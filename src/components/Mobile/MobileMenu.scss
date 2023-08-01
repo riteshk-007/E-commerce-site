@@ -1,0 +1,73 @@
+@import "../style/mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Belleza&display=swap");
+
+.mobile-view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .menu {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    width: 85%;
+    .menu-item {
+      margin: 10px 0;
+      font-size: 15px;
+    }
+
+    .menu-icons {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: start;
+      font-size: 18px;
+      margin-top: 10px;
+      .space {
+        margin: 4px 7px;
+      }
+      .menu-cartIcon {
+        position: relative;
+        span {
+          font-size: 12px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background-color: #2879fe;
+          color: #fff;
+          position: absolute;
+          right: -3px;
+          top: -5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .second-menu {
+    position: absolute;
+    bottom: 25%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    .menu-item {
+      margin: 5px;
+      font-size: 13px;
+    }
+    .menu-flag {
+      width: 13px;
+    }
+  }
+  h3 {
+    position: absolute;
+    top: 10%;
+    font-family: "Belleza", sans-serif;
+    letter-spacing: 2px;
+  }
+}

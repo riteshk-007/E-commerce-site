@@ -1,4 +1,5 @@
 @import "../style/mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Belleza&display=swap");
 
 .navbar {
   height: 80px;
@@ -7,13 +8,16 @@
   z-index: 100;
   padding-top: 10px;
   background: #fff;
-
+  position: relative;
+  font-family: "Belleza", sans-serif;
   .wrapper {
     padding: 10px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
+    justify-content: center;
+    @include md {
+      justify-content: space-between;
+    }
     .item {
       display: flex;
       align-items: center;
@@ -23,6 +27,10 @@
       display: flex;
       align-items: center;
       gap: 22px;
+      display: none;
+      @include md {
+        display: flex;
+      }
       .flag {
         height: 30px;
         margin: 0px 2px;
@@ -32,11 +40,17 @@
       font-size: 30px;
       letter-spacing: 2px;
       text-transform: uppercase;
+      margin: 0 20px;
+      font-family: "Belleza", sans-serif;
     }
     .right {
       display: flex;
       align-items: center;
       gap: 22px;
+      display: none;
+      @include md {
+        display: flex;
+      }
 
       .icons {
         display: flex;
@@ -63,6 +77,48 @@
           }
         }
       }
+    }
+  }
+  .menu {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    z-index: 100;
+    cursor: pointer;
+    .menuback {
+      position: absolute;
+      background: #ffffff;
+      top: 0;
+      right: 0;
+      width: 70vw;
+      height: 93vh;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      animation: anim 0.4s ease-in-out;
+      @keyframes anim {
+        to {
+          opacity: 1;
+          visibility: visible;
+        }
+        from {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      .close {
+        position: absolute;
+        right: 2%;
+        top: 2%;
+        cursor: pointer;
+        font-size: 20px;
+      }
+    }
+  }
+  @include md {
+    .menu {
+      display: none;
     }
   }
 }

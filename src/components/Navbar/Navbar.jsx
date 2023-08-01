@@ -1,11 +1,15 @@
 import "./Navbar.scss";
+import MobileMenu from "../Mobile/MobileMenu";
 
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineKeyboardArrowDown, MdClose } from "react-icons/md";
 import { HiSearch, HiOutlineUser } from "react-icons/hi";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { CgMenuRightAlt } from "react-icons/cg";
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function Navbar() {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -36,7 +40,7 @@ function Navbar() {
         </div>
         <div className="center">
           <Link className="link" to={"/"}>
-            FashRoom
+            FashHub
           </Link>
         </div>
         <div className="right">
@@ -70,6 +74,16 @@ function Navbar() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="menu">
+        {showMenu ? (
+          <div className="menuback">
+            <MdClose onClick={() => setShowMenu(false)} className="close" />
+            <MobileMenu setShowMenu={setShowMenu} />
+          </div>
+        ) : (
+          <CgMenuRightAlt onClick={() => setShowMenu(true)} />
+        )}
       </div>
     </div>
   );
