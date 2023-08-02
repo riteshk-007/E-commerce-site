@@ -1,1 +1,72 @@
 @import "../style/mixins.scss";
+
+.card {
+  display: flex;
+  width: 140px;
+  flex-direction: column;
+  margin: auto;
+  gap: 10px;
+  .image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    &:hover {
+      .secondImage {
+        z-index: 2;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+    }
+    .mainImage {
+      z-index: 1;
+    }
+    span {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background: #fff;
+      color: teal;
+      padding: 3px 5px;
+      z-index: 3;
+      border-radius: 3px;
+      font-family: sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+  @include md {
+    .image {
+      height: 400px;
+    }
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .prices {
+    display: flex;
+    gap: 15px;
+
+    h3 {
+      font-size: 17px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:first-child {
+        color: gray;
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+@include md {
+  .card {
+    width: 280px;
+  }
+}

@@ -16,7 +16,7 @@
     p {
       flex: 2;
       color: gray;
-      font-size: 9px;
+      font-size: 7px;
       letter-spacing: 2px;
     }
     @include md {
@@ -36,7 +36,9 @@
   .bottom {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 50px;
+    flex-wrap: wrap;
   }
 }
 @include md {
