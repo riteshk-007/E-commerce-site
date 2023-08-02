@@ -1,0 +1,46 @@
+@import "../style/mixins.scss";
+
+.featuredProducts {
+  margin: 100px 20px;
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    h1 {
+      flex: 2;
+      text-transform: capitalize;
+      font-size: 20px;
+    }
+    p {
+      flex: 2;
+      color: gray;
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+    @include md {
+      h1 {
+        flex: 1;
+        font-size: 36px;
+      }
+
+      p {
+        font-size: 17px;
+        flex: 3;
+        color: gray;
+        letter-spacing: 1px;
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+}
+@include md {
+  .featuredProducts {
+    margin: 100px 200px;
+  }
+}
