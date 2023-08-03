@@ -1,0 +1,11 @@
+@import "../style/mixins.scss";
+.list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+@include md {
+  .list {
+    justify-content: space-between;
+  }
+}

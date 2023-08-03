@@ -1,1 +1,84 @@
 @import "../../components/style/mixins.scss";
+.products {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  .left {
+    flex: 1;
+    position: sticky;
+    height: 100%;
+    top: 0px;
+    background: #fff;
+    z-index: 10;
+    .filterItem {
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-top: 5px;
+      h2 {
+        font-weight: 500;
+        margin-bottom: 5px;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      @include md {
+        h2 {
+          font-size: 22px;
+          margin-bottom: 20px;
+          font-weight: 400;
+        }
+      }
+      .inputItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3px;
+        label {
+          margin-left: 5px;
+          font-size: 13px;
+        }
+        span {
+          margin: 0px 5px;
+        }
+      }
+      @include md {
+        .inputItem {
+          display: block;
+          margin-bottom: 10px;
+          label {
+            margin-left: 10px;
+            font-size: 16px;
+          }
+          span {
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+    @include md {
+      .filterItem {
+        display: block;
+      }
+    }
+  }
+  @include md {
+    .left {
+      top: 50px;
+    }
+  }
+  .right {
+    flex: 3;
+    .catImg {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+  }
+}
+@include md {
+  .products {
+    padding: 30px 50px;
+    flex-direction: row;
+  }
+}
