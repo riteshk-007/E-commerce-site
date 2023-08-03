@@ -1,0 +1,49 @@
+@import "../style/mixins.scss";
+.contact {
+  background: #000;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    span {
+      margin: 15px 0;
+    }
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      margin: 15px 0;
+    }
+
+    button {
+      padding: 10px;
+      color: #cecece;
+      border-radius: 0 5px 5px 0;
+      background: #333;
+      border: none;
+      cursor: pointer;
+    }
+    .icons {
+      display: flex;
+      gap: 10px;
+      font-size: 18px;
+      margin: 15px 0;
+    }
+  }
+  @include md {
+    .wrapper {
+      width: 50%;
+      justify-content: space-between;
+    }
+  }
+}
