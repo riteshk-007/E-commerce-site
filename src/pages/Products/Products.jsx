@@ -47,7 +47,7 @@ function Products() {
               name="price"
               id="acs"
               value={"asc"}
-              onChange={(e) => setSort("acs")}
+              onChange={() => setSort("acs")}
             />
             <label htmlFor="acs"> Price (Lowest first)</label>
           </div>
@@ -57,7 +57,7 @@ function Products() {
               name="price"
               id="desc"
               value={"desc"}
-              onChange={(e) => setSort("desc")}
+              onChange={() => setSort("desc")}
             />
             <label htmlFor="desc"> Price (Highest first)</label>
           </div>
