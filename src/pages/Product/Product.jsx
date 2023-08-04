@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Product.scss";
 
 import { BsCurrencyRupee } from "react-icons/bs";
@@ -13,6 +13,9 @@ function Product() {
     "https://images.pexels.com/photos/1080122/pexels-photo-1080122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "https://images.pexels.com/photos/921647/pexels-photo-921647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="product">
       <div className="left">

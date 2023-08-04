@@ -7,8 +7,12 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 import "../App.scss";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="app">
       <Navbar />

@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
 import "./Products.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Products() {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(5000);
   const [sort, setSort] = useState(null);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="products">
       <div className="left">
