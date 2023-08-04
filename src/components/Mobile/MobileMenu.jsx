@@ -6,7 +6,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { HiSearch, HiOutlineUser } from "react-icons/hi";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 
-function MobileMenu({ setShowMenu }) {
+function MobileMenu({ setShowMenu, setOpen, open }) {
   return (
     <div className="mobile-view">
       <h3>FashHub</h3>
@@ -32,10 +32,19 @@ function MobileMenu({ setShowMenu }) {
           </Link>
         </div>
         <div className="menu-icons">
-          <HiSearch className="space" />
-          <HiOutlineUser className="space" />
-          <AiOutlineHeart className="space" />
-          <div className="menu-cartIcon">
+          <HiSearch className="space" onClick={() => setShowMenu(false)} />
+          <HiOutlineUser className="space" onClick={() => setShowMenu(false)} />
+          <AiOutlineHeart
+            className="space"
+            onClick={() => setShowMenu(false)}
+          />
+          <div
+            className="menu-cartIcon"
+            onClick={() => {
+              setOpen(!open);
+              setShowMenu(false);
+            }}
+          >
             <AiOutlineShoppingCart className="space" />
             <span>0</span>
           </div>
@@ -51,17 +60,29 @@ function MobileMenu({ setShowMenu }) {
           <MdOutlineKeyboardArrowDown />
         </div>
         <div className="menu-item">
-          <Link className="link" to={"/products/1"}>
+          <Link
+            className="link"
+            to={"/products/1"}
+            onClick={() => setShowMenu(false)}
+          >
             Men
           </Link>
         </div>
         <div className="menu-item">
-          <Link className="link" to={"/products/2"}>
+          <Link
+            className="link"
+            to={"/products/2"}
+            onClick={() => setShowMenu(false)}
+          >
             Women
           </Link>
         </div>
         <div className="menu-item">
-          <Link className="link" to={"/products/3"}>
+          <Link
+            className="link"
+            to={"/products/3"}
+            onClick={() => setShowMenu(false)}
+          >
             Children
           </Link>
         </div>

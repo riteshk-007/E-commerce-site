@@ -8,8 +8,10 @@ import { CgMenuRightAlt } from "react-icons/cg";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Cart from "../Cart/Cart";
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -68,18 +70,23 @@ function Navbar() {
             <HiSearch />
             <HiOutlineUser />
             <AiOutlineHeart />
-            <div className="cartIcon">
+            <div className="cartIcon" onClick={() => setOpen(!open)}>
               <AiOutlineShoppingCart />
               <span>0</span>
             </div>
           </div>
         </div>
       </div>
+      {open && <Cart setOpen={setOpen} />}
       <div className="menu">
         {showMenu ? (
           <div className="menuback">
             <MdClose onClick={() => setShowMenu(false)} className="close" />
-            <MobileMenu setShowMenu={setShowMenu} />
+            <MobileMenu
+              setShowMenu={setShowMenu}
+              setOpen={setOpen}
+              open={open}
+            />
           </div>
         ) : (
           <CgMenuRightAlt onClick={() => setShowMenu(true)} />
