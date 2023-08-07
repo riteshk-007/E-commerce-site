@@ -5,41 +5,43 @@ import { BsCurrencyRupee } from "react-icons/bs";
 import { MdAddShoppingCart } from "react-icons/md";
 import { FiHeart } from "react-icons/fi";
 import { FaBalanceScale } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 function Product() {
-  const [selectedImg, setSelectedImg] = useState(0);
+  const ID = useParams();
   const [quantity, setQuantity] = useState(1);
-  const images = [
-    "https://images.pexels.com/photos/1080122/pexels-photo-1080122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/921647/pexels-photo-921647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  ];
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    const fetchData = async () => {
+      try {
+        const data = await fetch(`https://dummyjson.com/products/${ID.id}`);
+        const res = await data.json();
+        setProducts(res);
+      } catch (error) {
+        alert(error);
+      }
+    };
+    fetchData();
+  }, [ID.id]);
   return (
     <div className="product">
       <div className="left">
-        <div className="images">
-          <img src={images[0]} alt="" onMouseEnter={() => setSelectedImg(0)} />
-          <img src={images[1]} alt="" onMouseEnter={() => setSelectedImg(1)} />
-        </div>
         <div className="mainImg">
-          <img src={images[selectedImg]} alt="" />
+          <img
+            src={products?.images && products?.images[0]}
+            alt={products?.title}
+          />
         </div>
       </div>
       <div className="right">
-        <h1> Title</h1>
+        <h1> {products?.title}</h1>
         <span className="price">
           <BsCurrencyRupee />
-          499
+          {products?.price}
         </span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum eos
-          dolore, sunt sequi quos obcaecati, magnam nemo eius, quae beatae
-          libero eum eligendi. Pariatur ipsam consectetur nam dolorem quae
-          tenetur quod doloremque tempore esse, dolorum, illum, hic
-          necessitatibus! Blanditiis, error.
-        </p>
+        <p>{products?.description}</p>
         <div className="quantity">
           <button
             onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}
@@ -61,13 +63,15 @@ function Product() {
           </div>
         </div>
         <div className="info">
-          <span>Vendor: polo</span>
-          <span>Product type: T-shirt</span>
-          <span>Tag: T-shirt, women, top</span>
+          <span>Category: {products?.category}</span>
+          <span>Brand: {products?.brand}</span>
+          <span>Rating: {products?.rating}</span>
         </div>
         <hr />
         <div className="details">
           <span>DESCRIPTION</span>
+          <br />
+          <span>{products?.description}</span>
           <hr />
           <span>ADDITIONAL INFORMATION</span>
           <hr />

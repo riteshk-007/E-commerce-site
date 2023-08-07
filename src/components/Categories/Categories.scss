@@ -26,6 +26,10 @@
       position: absolute;
       min-width: 50px;
       width: fit-content;
+      flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       height: 30px;
       padding: 5px;

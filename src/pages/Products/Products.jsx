@@ -4,12 +4,28 @@ import "./Products.scss";
 import { useEffect, useState } from "react";
 
 function Products() {
-  const catId = parseInt(useParams().id);
+  const { category } = useParams();
   const [maxPrice, setMaxPrice] = useState(5000);
   const [sort, setSort] = useState(null);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+
+    const fetchData = async () => {
+      try {
+        const data = await fetch(
+          `https://dummyjson.com/products/category/${category}`
+        );
+        const res = await data.json();
+        setProducts(res.products);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [category]);
+
   return (
     <div className="products">
       <div className="left">
@@ -71,7 +87,7 @@ function Products() {
           alt="categoryImg"
           className="catImg"
         />
-        <List catId={catId} maxPrice={maxPrice} sort={sort} />
+        <List products={products} maxPrice={maxPrice} sort={sort} />
       </div>
     </div>
   );

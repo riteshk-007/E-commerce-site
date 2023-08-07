@@ -5,22 +5,17 @@ import { BsCurrencyRupee } from "react-icons/bs";
 
 function Card({ item }) {
   return (
-    <Link to={`/product/${item.id}`} className="link">
+    <Link to={`/product/${item?.id}`} className="link">
       <div className="card">
         <div className="image">
-          {item.isNew && <span>New Season</span>}
-          <img src={item.img} alt="" className="mainImage" />
-          <img src={item.img2} alt="" className="secondImage" />
+          <img src={item?.images[0]} alt="" className="mainImage" />
+          <img src={item?.images[1]} alt="" className="secondImage" />
         </div>
-        <h2>{item.title}</h2>
+        <h2>{item?.title}</h2>
         <div className="prices">
           <h3>
             <BsCurrencyRupee />
-            {item.oldPrice}
-          </h3>
-          <h3>
-            <BsCurrencyRupee />
-            {item.price}
+            {item?.price}
           </h3>
         </div>
       </div>
