@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { HiSearch, HiOutlineUser } from "react-icons/hi";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 function MobileMenu({ setShowMenu, setOpen, open, categories }) {
+  const products = useSelector((state) => state.cart.products);
   return (
     <div className="mobile-view">
       <h3>FashHub</h3>
@@ -46,7 +48,7 @@ function MobileMenu({ setShowMenu, setOpen, open, categories }) {
             }}
           >
             <AiOutlineShoppingCart className="space" />
-            <span>0</span>
+            <span>{products.length}</span>
           </div>
         </div>
       </div>

@@ -6,11 +6,14 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { FiHeart } from "react-icons/fi";
 import { FaBalanceScale } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/CartReducer";
 
 function Product() {
   const ID = useParams();
   const [quantity, setQuantity] = useState(1);
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,7 +54,22 @@ function Product() {
           {quantity}
           <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
         </div>
-        <button className="add">
+        <button
+          className="add"
+          onClick={() => {
+            dispatch(
+              addToCart({
+                id: products.id,
+                title: products.title,
+                desc: products.description,
+                price: products.price,
+                img: products.images[0],
+                quantity,
+              })
+            );
+            setQuantity(1);
+          }}
+        >
           <MdAddShoppingCart /> ADD TO CART
         </button>
         <div className="link">

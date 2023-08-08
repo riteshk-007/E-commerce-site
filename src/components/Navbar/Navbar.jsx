@@ -9,10 +9,12 @@ import { CgMenuRightAlt } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cart from "../Cart/Cart";
+import { useSelector } from "react-redux";
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const [categories, setCategories] = useState([]);
+  const products = useSelector((state) => state.cart.products);
   useEffect(() => {
     const fetcData = async () => {
       try {
@@ -98,7 +100,7 @@ function Navbar() {
             <AiOutlineHeart />
             <div className="cartIcon" onClick={() => setOpen(!open)}>
               <AiOutlineShoppingCart />
-              <span>0</span>
+              <span>{products.length}</span>
             </div>
           </div>
         </div>
