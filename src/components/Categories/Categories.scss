@@ -2,9 +2,9 @@
 
 .categories {
   display: flex;
-  height: 80vh;
   gap: 5px;
-  margin: 10px;
+  margin: 5px;
+  flex-direction: column;
 
   .col {
     flex: 1;
@@ -14,11 +14,13 @@
   }
   .col-l {
     flex: 2;
+    .row:first-child {
+      gap: 4px;
+    }
   }
   .row {
     flex: 1;
     display: flex;
-    gap: 5px;
     position: relative;
     overflow: hidden;
 
@@ -73,5 +75,7 @@
 @include md {
   .categories {
     gap: 10px;
+    height: 80vh;
+    flex-direction: row;
   }
 }

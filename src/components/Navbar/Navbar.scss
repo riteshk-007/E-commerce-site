@@ -23,6 +23,48 @@
       align-items: center;
       font-size: 16px;
     }
+    .item-category {
+      position: relative;
+      &:hover {
+        .more {
+          transition: all 0.2s ease-in;
+          transform: rotate(180deg);
+        }
+        .more-category {
+          transition: all 0.1s ease-in;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .more-category {
+        position: absolute;
+        top: 15px;
+        left: 40%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 5px;
+        background: #fff;
+        color: #000;
+        list-style: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        z-index: 10;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        opacity: 0;
+        visibility: hidden;
+        li {
+          padding: 10px;
+          font-size: 12px;
+          font-family: sans-serif;
+          text-transform: uppercase;
+          border-radius: 5px;
+          text-align: center;
+          &:hover {
+            background: #cccccc80;
+          }
+        }
+      }
+    }
     .left {
       display: flex;
       align-items: center;

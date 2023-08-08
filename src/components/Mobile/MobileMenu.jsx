@@ -6,7 +6,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { HiSearch, HiOutlineUser } from "react-icons/hi";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 
-function MobileMenu({ setShowMenu, setOpen, open }) {
+function MobileMenu({ setShowMenu, setOpen, open, categories }) {
   return (
     <div className="mobile-view">
       <h3>FashHub</h3>
@@ -62,7 +62,7 @@ function MobileMenu({ setShowMenu, setOpen, open }) {
         <div className="menu-item">
           <Link
             className="link"
-            to={"/products/1"}
+            to={"/products/mens-shirts"}
             onClick={() => setShowMenu(false)}
           >
             Men
@@ -71,7 +71,7 @@ function MobileMenu({ setShowMenu, setOpen, open }) {
         <div className="menu-item">
           <Link
             className="link"
-            to={"/products/2"}
+            to={"/products/womens-dresses"}
             onClick={() => setShowMenu(false)}
           >
             Women
@@ -80,11 +80,30 @@ function MobileMenu({ setShowMenu, setOpen, open }) {
         <div className="menu-item">
           <Link
             className="link"
-            to={"/products/3"}
+            to={"/products/mens-shoes"}
             onClick={() => setShowMenu(false)}
           >
-            Children
+            Men Shoes
           </Link>
+        </div>
+        <div className="position">
+          <div className="item item-category">
+            Others <MdOutlineKeyboardArrowDown className="more" />
+            <div className="more-category">
+              {categories?.map((item, index) => {
+                return (
+                  <Link
+                    key={index}
+                    className="link"
+                    to={`/products/${item}`}
+                    onClick={() => setShowMenu(false)}
+                  >
+                    <li>{item}</li>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

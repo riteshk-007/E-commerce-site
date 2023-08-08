@@ -5,11 +5,11 @@
   flex-direction: column;
   .left {
     flex: 1;
-    position: sticky;
     height: 100%;
     top: 0px;
     background: #fff;
     z-index: 10;
+    display: none;
     .filterItem {
       margin-bottom: 30px;
       display: flex;
@@ -65,6 +65,8 @@
   @include md {
     .left {
       top: 50px;
+      display: block;
+      position: sticky;
     }
   }
   .right {
