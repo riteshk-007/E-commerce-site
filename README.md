@@ -1,4 +1,4 @@
-<h1>**E-commerce Website Built with React.js and Redux Toolkit**</h1>
+<h1>E-commerce Website Built with React.js and Redux Toolkit</h1>
 
 
 ![image](https://github.com/riteshk-007/E-commerce-site/assets/135107962/70e2d0d8-5f6a-4f0c-996d-a472a8ecee9b)
