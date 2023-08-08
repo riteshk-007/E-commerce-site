@@ -9,6 +9,17 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
+  .warning {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-family: sans-serif;
+    color: darkgray;
+    margin: 17px 0px;
+  }
   h1 {
     margin-bottom: 30px;
     color: rgb(83, 83, 83);
